@@ -26,9 +26,13 @@ function handleMessage(receivedTopic, message) {
   if (topicInfo) {
 
     const value = message.toString();
-    console.log(`${topicInfo.name}: ${value} ${topicInfo.unit}`);
+    const now = new Date();
+    const timeString = now.toLocaleTimeString();
+
+    console.log(`[${timeString}] ${topicInfo.name}: ${value} ${topicInfo.unit}`);
   }
 }
+
 
 const client = mqtt.connect(brokerUrl, options);
 
